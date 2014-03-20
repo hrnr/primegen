@@ -1,0 +1,118 @@
+\hypertarget{namespace_prime_gen_1_1_generators}{\section{Prime\-Gen\-:\-:Generators Namespace Reference}
+\label{namespace_prime_gen_1_1_generators}\index{Prime\-Gen\-::\-Generators@{Prime\-Gen\-::\-Generators}}
+}
+
+
+Prime generators.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class U\-Int\-Type , size\-\_\-t w, uint\-\_\-fast32\-\_\-t accuracy$>$ }\\U\-Int\-Type \hyperlink{namespace_prime_gen_1_1_generators_a8a8f4b71177d1af319d557d752a5f5f2}{random\-\_\-prime} (const std\-::string \&token=\char`\"{}default\char`\"{})
+\begin{DoxyCompactList}\small\item\em Random prime generator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U\-Int\-Type , size\-\_\-t w, uint\-\_\-fast32\-\_\-t accuracy$>$ }\\U\-Int\-Type \hyperlink{namespace_prime_gen_1_1_generators_ad1e01a21e488dd5c0b668e972238ec6b}{pseudo\-\_\-random\-\_\-prime} (const uint\-\_\-fast32\-\_\-t \&seed)
+\begin{DoxyCompactList}\small\item\em Pseudorandom prime generator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U\-Int\-Type , uint\-\_\-fast32\-\_\-t accuracy$>$ }\\U\-Int\-Type \hyperlink{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}{next\-\_\-prime} (U\-Int\-Type n)
+\begin{DoxyCompactList}\small\item\em Generates next prime greater than {\ttfamily n}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prime generators. 
+
+\subsection{Function Documentation}
+\hypertarget{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}{\index{Prime\-Gen\-::\-Generators@{Prime\-Gen\-::\-Generators}!next\-\_\-prime@{next\-\_\-prime}}
+\index{next\-\_\-prime@{next\-\_\-prime}!PrimeGen::Generators@{Prime\-Gen\-::\-Generators}}
+\subsubsection[{next\-\_\-prime}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\-Int\-Type , uint\-\_\-fast32\-\_\-t accuracy$>$ U\-Int\-Type Prime\-Gen\-::\-Generators\-::next\-\_\-prime (
+\begin{DoxyParamCaption}
+\item[{U\-Int\-Type}]{n}
+\end{DoxyParamCaption}
+)}}\label{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}
+
+
+Generates next prime greater than {\ttfamily n}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\-Int\-Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily result}. Too bad no theory can estimate how exactly this prime will be big. From probabilistic theory you are pretty safe if {\ttfamily U\-Int\-Type} can hold $ 3 \times (n + \ln(n)) $. \\
+\hline
+{\em accuracy} & Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are {\bfseries 25} – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespace_prime_gen_1_1_tests_a4ef151cd54b58df3b5c96195497e3ac2}{Tests\-::miller\-\_\-rabin}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Generated prime will be greater than {\ttfamily n}. {\ttfamily n} must be greater than 3.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Prime greater than {\ttfamily n}. There should be no other primes between {\ttfamily n} and generated prime (see {\ttfamily accuracy}). 
+\end{DoxyReturn}
+\hypertarget{namespace_prime_gen_1_1_generators_ad1e01a21e488dd5c0b668e972238ec6b}{\index{Prime\-Gen\-::\-Generators@{Prime\-Gen\-::\-Generators}!pseudo\-\_\-random\-\_\-prime@{pseudo\-\_\-random\-\_\-prime}}
+\index{pseudo\-\_\-random\-\_\-prime@{pseudo\-\_\-random\-\_\-prime}!PrimeGen::Generators@{Prime\-Gen\-::\-Generators}}
+\subsubsection[{pseudo\-\_\-random\-\_\-prime}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\-Int\-Type , size\-\_\-t w, uint\-\_\-fast32\-\_\-t accuracy$>$ U\-Int\-Type Prime\-Gen\-::\-Generators\-::pseudo\-\_\-random\-\_\-prime (
+\begin{DoxyParamCaption}
+\item[{const uint\-\_\-fast32\-\_\-t \&}]{seed}
+\end{DoxyParamCaption}
+)}}\label{namespace_prime_gen_1_1_generators_ad1e01a21e488dd5c0b668e972238ec6b}
+
+
+Pseudorandom prime generator. 
+
+Pseudorandom prime will be generated using {\ttfamily std\-::minstd\-\_\-rand}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\-Int\-Type} & Unsigned integer type. Must be able to hold 2 times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\-Int\-Type} must be able to hold 64b numbers.) \\
+\hline
+{\em w} & Size of number to generate in bits. Generated number will be alway greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2. \\
+\hline
+{\em accuracy} & Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are {\bfseries 25} – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespace_prime_gen_1_1_tests_a4ef151cd54b58df3b5c96195497e3ac2}{Tests\-::miller\-\_\-rabin}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & Initial seed passed to random engine.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pseudorandom prime number. 
+\end{DoxyReturn}
+\hypertarget{namespace_prime_gen_1_1_generators_a8a8f4b71177d1af319d557d752a5f5f2}{\index{Prime\-Gen\-::\-Generators@{Prime\-Gen\-::\-Generators}!random\-\_\-prime@{random\-\_\-prime}}
+\index{random\-\_\-prime@{random\-\_\-prime}!PrimeGen::Generators@{Prime\-Gen\-::\-Generators}}
+\subsubsection[{random\-\_\-prime}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\-Int\-Type , size\-\_\-t w, uint\-\_\-fast32\-\_\-t accuracy$>$ U\-Int\-Type Prime\-Gen\-::\-Generators\-::random\-\_\-prime (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{token = {\ttfamily \char`\"{}default\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespace_prime_gen_1_1_generators_a8a8f4b71177d1af319d557d752a5f5f2}
+
+
+Random prime generator. 
+
+Random prime will be generated using {\ttfamily std\-::random\-\_\-device}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\-Int\-Type} & Unsigned integer type. Must be able to hold 2 times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\-Int\-Type} must be able to hold 64b numbers.) \\
+\hline
+{\em w} & Size of number to generate in bits. Generated number will be alway greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2. \\
+\hline
+{\em accuracy} & Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are {\bfseries 25} – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespace_prime_gen_1_1_tests_a4ef151cd54b58df3b5c96195497e3ac2}{Tests\-::miller\-\_\-rabin}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em token} & Token passed to {\ttfamily std\-::random\-\_\-device}. This parameter is implementation-\/defined. Typical implementation on a Linux system, for example, expects token to be the name of a character device that produces random numbers when read from, with the default value {\ttfamily \char`\"{}/dev/urandom\char`\"{}}. If nothing provided {\ttfamily \char`\"{}default\char`\"{}} is used which should represent system-\/valuable source of randomness.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly (randomness depends on random device represented by provided {\ttfamily token}) generated prime number. 
+\end{DoxyReturn}

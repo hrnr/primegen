@@ -1,0 +1,6 @@
+\form#0:$ ({base}^{exponent}) \% modulo $
+\form#1:$ n = 2^{s} \times d $
+\form#2:$ \frac{1}{4^{accuracy}} $
+\form#3:$ \frac{1}{4^{25}} $
+\form#4:$ 2^{w-1} $
+\form#5:$ 3 \times (n + \ln(n)) $
