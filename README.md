@@ -1,295 +1,261 @@
-PrimeGen – Library for generating prime numbers {#index}
+PrimeGen – Library for generating prime numbers
 ===============================================
 
-<span>Author</span> Jiri Horner
+Author
+:   Jiri Horner
 
-<span>Version</span> 1.0
+Version
+:   1.0
 
-<span>Date</span> 2014
+Date
+:   2014
 
-<span>Copyright</span> MIT License
+Copyright
+:   MIT License
 
 Template library providing functions for prime numbers generation.
 
-Working with big numbers {#index_bignums}
+Working with big numbers
 ------------------------
 
 Instead of standard unsigned integer types, any user-defined class may
-be used for <span>UIntType</span>. Class must define at least <span>= +
-& ++ (prefix) == $<$ != $>$ % $>$$>$ $<$$<$ - $\ast$</span> operators,
-with the same behavior they have with standard unsigned integer types
-and must be interoperable with standard unsigned integer types. All
-library functions have been tested with GNU MP Bignum Library’s
-<span>mpz\_class</span>.
+be used for `UIntType`. Class must define at least
+`= + & ++ (prefix) == < != > % >> << - *` operators, with the same
+behavior they have with standard unsigned integer types and must be
+interoperable with standard unsigned integer types. All library
+functions have been tested with GNU MP Bignum Library's `mpz_class`.
 
-Namespace Index
-===============
 
-Namespace List
---------------
+* * * * *
 
-Here is a list of all documented namespaces with brief descriptions:
+NAME
+----
 
-Namespace Documentation
-=======================
+PrimeGen::Generators
 
-Prime generators.
+SYNOPSIS
+--------
 
-### Functions {#functions .unnumbered}
+**Functions**
 
-<span>template$<$class UIntType , size\_t w, uint\_fast32\_t accuracy$>$
-</span>\
-UIntType (const std::string &token=\`"default\`")
+template\<class UIntType , size\_t w, uint\_fast32\_t accuracy\> UIntType **random\_prime** (const std::string &token=’default’) *
+ Random prime generator.*
+ template\<class UIntType , size\_t w, uint\_fast32\_t accuracy\> UIntType **pseudo\_random\_prime** (const uint\_fast32\_t &seed) *
+ Pseudorandom prime generator.*
+ template\<class UIntType , uint\_fast32\_t accuracy\> UIntType **next\_prime** (UIntType n) *
+ Generates next prime greater than* `n`*.*
 
-*Random prime generator. *
-
-<span>template$<$class UIntType , size\_t w, uint\_fast32\_t accuracy$>$
-</span>\
-UIntType (const uint\_fast32\_t &seed)
-
-*Pseudorandom prime generator. *
-
-<span>template$<$class UIntType , uint\_fast32\_t accuracy$>$ </span>\
-UIntType (UIntType n)
-
-*Generates next prime greater than <span>n</span>. *
-
-### Detailed Description
+Detailed Description
+--------------------
 
 Prime generators.
 
-### Function Documentation
+Function Documentation
+----------------------
 
-[namespace~p~rime~g~en~11g~enerators~a~873d71df2a6aa5006ef2be655b0e96bd]
+**template\<class UIntType , uint\_fast32\_t accuracy\> UIntType PrimeGen::Generators::next\_prime (UIntTypen)**
+ Generates next prime greater than `n`.
 
-Generates next prime greater than <span>n</span>.
+**Template Parameters:**
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold 2 times size of <span>result</span>.
-Too bad no theory can estimate how exactly this prime will be big. From
-probabilistic theory you are pretty safe if <span>UIntType</span> can
-hold $ 3 \times (n + \ln(n)) $.\
- & Since probabilistic test is used for primarity testing, this
-parameter determines accuracy of the test. Reasonable values are
-<span>**25**</span> – 50 which gives probability of false-positive
-composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably
-fast.\
+*UIntType* Unsigned integer type. Must be able to hold 2 times size of `result`. Too bad no theory can estimate how exactly this prime will be big. From probabilistic theory you are pretty safe if `UIntType` can hold \$ 3 imes (n + ) \$. *
+ accuracy* Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are **25** â 50 which gives probability of false-positive composite lower than \$ ac{1}{4\^{25}} \$ while test is still reasonably fast.
 
-<span>See Also</span>
+**See Also:**
 
-<span>Parameters</span> <span>*n*</span> & Generated prime will be
-greater than <span>n</span>. <span>n</span> must be greater than 3.\
+**Tests::miller\_rabin**
 
-<span>Returns</span> Prime greater than <span>n</span>. There should be
-no other primes between <span>n</span> and generated prime (see
-<span>accuracy</span>).
+**Parameters:**
 
-[namespace~p~rime~g~en~11g~enerators~a~d1e01a21e488dd5c0b668e972238ec6b]
+*n* Generated prime will be greater than `n`. `n` must be greater than 3.
 
-Pseudorandom prime generator.
+**Returns:**
 
-Pseudorandom prime will be generated using
-<span>std::minstd\_rand</span>.
+Prime greater than `n`. There should be no other primes between `n` and generated prime (see `accuracy`).
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold 2 times maximum of <span>w</span>.
-(If <span>w</span> is 32 <span>UIntType</span> must be able to hold 64b
-numbers.)\
- & Size of number to generate in bits. Generated number will be alway
-greater than $ 2^{w-1} $. <span>w</span> must be greater than 2.\
- & Since probabilistic test is used for primarity testing, this
-parameter determines accuracy of the test. Reasonable values are
-<span>**25**</span> – 50 which gives probability of false-positive
-composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably
-fast.\
+**template\<class UIntType , size\_t w, uint\_fast32\_t accuracy\> UIntType PrimeGen::Generators::pseudo\_random\_prime (const uint\_fast32\_t &seed)**
+ Pseudorandom prime generator. Pseudorandom prime will be generated using `std::minstd_rand`.
 
-<span>See Also</span>
+**Template Parameters:**
 
-<span>Parameters</span> <span>*seed*</span> & Initial seed passed to
-random engine.\
+*UIntType* Unsigned integer type. Must be able to hold 2 times maximum of `w`. (If `w` is 32 `UIntType` must be able to hold 64b numbers.) *
+ w* Size of number to generate in bits. Generated number will be alway greater than \$ 2\^{w-1} \$. `w` must be greater than 2. *
+ accuracy* Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are **25** â 50 which gives probability of false-positive composite lower than \$ ac{1}{4\^{25}} \$ while test is still reasonably fast.
 
-<span>Returns</span> Pseudorandom prime number.
+**See Also:**
 
-[namespace~p~rime~g~en~11g~enerators~a~8a8f4b71177d1af319d557d752a5f5f2]
+**Tests::miller\_rabin**
 
-Random prime generator.
+**Parameters:**
 
-Random prime will be generated using <span>std::random\_device</span>.
+*seed* Initial seed passed to random engine.
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold 2 times maximum of <span>w</span>.
-(If <span>w</span> is 32 <span>UIntType</span> must be able to hold 64b
-numbers.)\
- & Size of number to generate in bits. Generated number will be alway
-greater than $ 2^{w-1} $. <span>w</span> must be greater than 2.\
- & Since probabilistic test is used for primarity testing, this
-parameter determines accuracy of the test. Reasonable values are
-<span>**25**</span> – 50 which gives probability of false-positive
-composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably
-fast.\
+**Returns:**
 
-<span>See Also</span>
+Pseudorandom prime number.
 
-<span>Parameters</span> <span>*token*</span> & Token passed to
-<span>std::random\_device</span>. This parameter is
-implementation-defined. Typical implementation on a Linux system, for
-example, expects token to be the name of a character device that
-produces random numbers when read from, with the default value
-<span>\`"/dev/urandom\`"</span>. If nothing provided
-<span>\`"default\`"</span> is used which should represent
-system-valuable source of randomness.\
+**template\<class UIntType , size\_t w, uint\_fast32\_t accuracy\> UIntType PrimeGen::Generators::random\_prime (const std::string &token =** `’default’`**)**
+ Random prime generator. Random prime will be generated using `std::random_device`.
 
-<span>Returns</span> Randomly (randomness depends on random device
-represented by provided <span>token</span>) generated prime number.
+**Template Parameters:**
 
-Primality tests.
+*UIntType* Unsigned integer type. Must be able to hold 2 times maximum of `w`. (If `w` is 32 `UIntType` must be able to hold 64b numbers.) *
+ w* Size of number to generate in bits. Generated number will be alway greater than \$ 2\^{w-1} \$. `w` must be greater than 2. *
+ accuracy* Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are **25** â 50 which gives probability of false-positive composite lower than \$ ac{1}{4\^{25}} \$ while test is still reasonably fast.
 
-### Functions {#functions-1 .unnumbered}
+**See Also:**
 
-<span>template$<$class UIntType $>$ </span>\
-bool (const UIntType &n, const uint\_fast32\_t &accuracy)
+**Tests::miller\_rabin**
 
-*Miller-Rabin probabilistic primality test. *
+**Parameters:**
 
-<span>template$<$class UIntType $>$ </span>\
-bool (const UIntType &n)
+*token* Token passed to `std::random_device`. This parameter is implementation-defined. Typical implementation on a Linux system, for example, expects token to be the name of a character device that produces random numbers when read from, with the default value `’/dev/urandom’`. If nothing provided `’default’` is used which should represent system-valuable source of randomness.
 
-*Quick test, testing only first 100 prime factors. *
+**Returns:**
 
-<span>template$<$class UIntType $>$ </span>\
-bool (const UIntType &n)
+Randomly (randomness depends on random device represented by provided `token`) generated prime number.
 
-*Quick test, testing only first 1000 prime factors. *
+NAME
+----
 
-### Detailed Description
+PrimeGen::Tests
+
+SYNOPSIS
+--------
+
+**Functions**
+
+template\<class UIntType \> bool **miller\_rabin** (const UIntType &n, const uint\_fast32\_t &accuracy) *
+ Miller-Rabin probabilistic primality test.*
+ template\<class UIntType \> bool **f100\_prime\_factors** (const UIntType &n) *
+ Quick test, testing only first 100 prime factors.*
+ template\<class UIntType \> bool **f1000\_prime\_factors** (const UIntType &n) *
+ Quick test, testing only first 1000 prime factors.*
+
+Detailed Description
+--------------------
 
 Primality tests.
 
-### Function Documentation
+Function Documentation
+----------------------
 
-[namespace~p~rime~g~en~11t~ests~a~ffb664bd1da7fcf28787172279145d4a]
+**template\<class UIntType \> bool PrimeGen::Tests::f1000\_prime\_factors (const UIntType &n)**
+ Quick test, testing only first 1000 prime factors.
 
-Quick test, testing only first 1000 prime factors.
+**Template Parameters:**
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type.\
+*UIntType* Unsigned integer type.
 
-<span>Parameters</span> <span>*n*</span> & number to be tested for
-primarity\
+**Parameters:**
 
-<span>Returns</span> <span>true</span> if no prime factor was found,
-<span>false</span> otherwise. This test does not guarantee number to be
-prime, it should be used only together with other tests or for testing
-very small numbers.
+*n* number to be tested for primarity
 
-[namespace~p~rime~g~en~11t~ests~a~c7142f51753981c6ae4ca9c87413ab76]
+**Returns:**
 
-Quick test, testing only first 100 prime factors.
+`true` if no prime factor was found, `false` otherwise. This test does not guarantee number to be prime, it should be used only together with other tests or for testing very small numbers.
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type.\
+**template\<class UIntType \> bool PrimeGen::Tests::f100\_prime\_factors (const UIntType &n)**
+ Quick test, testing only first 100 prime factors.
 
-<span>Parameters</span> <span>*n*</span> & number to be tested for
-primality\
+**Template Parameters:**
 
-<span>Returns</span> <span>true</span> if no prime factor was found,
-<span>false</span> otherwise. This test does not guarantee number to be
-prime, it should be used only together with other tests or for testing
-very small numbers.
+*UIntType* Unsigned integer type.
 
-[namespace~p~rime~g~en~11t~ests~a~4ef151cd54b58df3b5c96195497e3ac2]
+**Parameters:**
 
-Miller-Rabin probabilistic primality test.
+*n* number to be tested for primality
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold 2 times size of <span>n</span>. (Even
-if <span>n</span> would fit in 32b type <span>UIntType</span> must be
-able to hold 64b number.)\
+**Returns:**
 
-<span>Parameters</span> <span>*n*</span> & Number to be tested for
-primality. Must be greater than 3.\
- & Since this is only probabilistic test, test has its accuracy
-determined by this parameter. Probability of false-positive match is
-only $ \frac{1}{4^{accuracy}} $. Prime will be always determined as
-prime. Reasonable values are 25 – 50 which gives probability of
-false-positive composite lower than $ \frac{1}{4^{25}} $ while test is
-still reasonably fast.\
+`true` if no prime factor was found, `false` otherwise. This test does not guarantee number to be prime, it should be used only together with other tests or for testing very small numbers.
 
-<span>Returns</span> <span>true</span> if number is probable prime,
-<span>false</span> if number is definitely composite.
+**template\<class UIntType \> bool PrimeGen::Tests::miller\_rabin (const UIntType &n, const uint\_fast32\_t &accuracy)**
+ Miller-Rabin probabilistic primality test.
 
-Various arithmetic functions used in library algorithms.
+**Template Parameters:**
 
-### Functions {#functions-2 .unnumbered}
+*UIntType* Unsigned integer type. Must be able to hold 2 times size of `n`. (Even if `n` would fit in 32b type `UIntType` must be able to hold 64b number.)
 
-<span>template$<$class UIntType $>$ </span>\
-std::pair$<$ UIntType, UIntType $>$ (const UIntType &n)
+**Parameters:**
 
-*Factorize powers of 2 from n. *
+*n* Number to be tested for primality. Must be greater than 3. *
+ accuracy* Since this is only probabilistic test, test has its accuracy determined by this parameter. Probability of false-positive match is only \$ ac{1}{4\^{accuracy}} \$. Prime will be always determined as prime. Reasonable values are 25 â 50 which gives probability of false-positive composite lower than \$ ac{1}{4\^{25}} \$ while test is still reasonably fast.
 
-<span>template$<$class UIntType $>$ </span>\
-UIntType (UIntType base, UIntType exp, const UIntType &mod)
+**Returns:**
 
-*Exponentiation over a modulo. Exponentiation will be done by repeated
-squaring. *
+`true` if number is probable prime, `false` if number is definitely composite.
 
-<span>template$<$class UIntType , class EngineType , size\_t w$>$
-</span>\
-UIntType (EngineType &\_32b\_generator)
+NAME
+----
 
-*Generates random number using provided engine. Randomness of generated
-number depends on randomness of provided engine. *
+PrimeGen::Utils
 
-### Detailed Description
+SYNOPSIS
+--------
+
+**Functions**
+
+template\<class UIntType \> std::pair\< UIntType, UIntType \> **fac\_2\_powers** (const UIntType &n) *
+ Factorize powers of 2 from n.*
+ template\<class UIntType \> UIntType **pow\_mod** (UIntType base, UIntType exp, const UIntType &mod) *
+ Exponentiation over a modulo. Exponentiation will be done by repeated squaring.*
+ template\<class UIntType , class EngineType , size\_t w\> UIntType **independent\_bits\_generator** (EngineType &\_32b\_generator) *
+ Generates random number using provided engine. Randomness of generated number depends on randomness of provided engine.*
+
+Detailed Description
+--------------------
 
 Various arithmetic functions used in library algorithms.
 
-### Function Documentation
+Function Documentation
+----------------------
 
-[namespace~p~rime~g~en~11u~tils~a~9d2674731aefc0e54322e023c1629a14]
+**template\<class UIntType \> std::pair\<UIntType, UIntType\> PrimeGen::Utils::fac\_2\_powers (const UIntType &n)**
+ Factorize powers of 2 from n.
 
-Factorize powers of 2 from n.
+**Template Parameters:**
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type.\
+*UIntType* Unsigned integer type.
 
-<span>Parameters</span> <span>*n*</span> & number to be factorized\
+**Parameters:**
 
-<span>Returns</span> std::pair (s, d) where s, d holds
-$ n = 2^{s} \times d $
+*n* number to be factorized
 
-[namespace~p~rime~g~en~11u~tils~a~279cd6b89aca43a9597f58aa4a7b5807]
+**Returns:**
 
-Generates random number using provided engine. Randomness of generated
-number depends on randomness of provided engine.
+std::pair (s, d) where s, d holds \$ n = 2\^{s} imes d \$
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold <span>w</span> long numbers\
- & Function support all standard engine types defined in
-<span>$<$random$>$</span>, including <span>std::random\_device</span>.
-(Hence all classes generating 32b numbers with () operator should work).
-Internal state of engine will be modified. Engine must be initialized
-and provide () operator generating 32b numbers.\
- & size of number to generate in bits\
+**template\<class UIntType , class EngineType , size\_t w\> UIntType PrimeGen::Utils::independent\_bits\_generator (EngineType &\_32b\_generator)**
+ Generates random number using provided engine. Randomness of generated number depends on randomness of provided engine.
 
-<span>Parameters</span> <span>*\_32b\_generator*</span> & Initialized
-number generator\
+**Template Parameters:**
 
-<span>Returns</span> std::pair (s, d) where s, d holds
-$ n = 2^{s} \times d $
+*UIntType* Unsigned integer type. Must be able to hold `w` long numbers *
+ EngineType* Function support all standard engine types defined in `<random>`, including `std::random_device`. (Hence all classes generating 32b numbers with () operator should work). Internal state of engine will be modified. Engine must be initialized and provide () operator generating 32b numbers. *
+ w* size of number to generate in bits
 
-[namespace~p~rime~g~en~11u~tils~a~640cffdfe9303cbe0eb0205165c3161e]
+**Parameters:**
 
-Exponentiation over a modulo. Exponentiation will be done by repeated
-squaring.
+*\_32b\_generator* Initialized number generator
 
-<span>Template Parameters</span> <span>*UIntType*</span> & Unsigned
-integer type. Must be able to hold 2 times size of <span>base</span> and
-<span>mod</span>. (Even if <span>base</span> would fit in 32b type
-<span>UIntType</span> must be able to hold 64b number.)\
+**Returns:**
 
-<span>Parameters</span> <span>*base*</span> &\
- & exponent\
- & modulo\
+std::pair (s, d) where s, d holds \$ n = 2\^{s} imes d \$
 
-<span>Returns</span> $ ({base}^{exponent}) \% modulo $
+**template\<class UIntType \> UIntType PrimeGen::Utils::pow\_mod (UIntTypebase, UIntTypeexp, const UIntType &mod)**
+ Exponentiation over a modulo. Exponentiation will be done by repeated squaring.
+
+**Template Parameters:**
+
+*UIntType* Unsigned integer type. Must be able to hold 2 times size of `base` and `mod`. (Even if `base` would fit in 32b type `UIntType` must be able to hold 64b number.)
+
+**Parameters:**
+
+*base
+ exp* exponent *
+ mod* modulo
+
+**Returns:**
+
+\$ ({base}\^{exponent}) modulo \$
