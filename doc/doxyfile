@@ -96,9 +96,8 @@ WARN_LOGFILE           = "doxygen.log"
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 INPUT                  = \
-	"../include/known_primes.h" \
-	"../src/primegen.cpp" \
-	"../include/primegen.h" 
+	"../src/known_primes.h" \
+	"../src/primegen.h" 
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          =
 RECURSIVE              = NO
