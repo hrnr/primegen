@@ -1,5 +1,5 @@
-#ifndef KNOWN_PRIMES_H_INCLUDED
-#define KNOWN_PRIMES_H_INCLUDED
+#ifndef KNOWN_PRIMES_H_
+#define KNOWN_PRIMES_H_
 
 #include <array>
 
