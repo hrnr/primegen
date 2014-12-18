@@ -59,7 +59,7 @@ namespace Generators {
              * @return Randomly (randomness depends on RandomNumberEngine and
   *its arguments) generated prime number.
              */
-template <class UIntType, size_t w, class RandomNumberEngine,
+template <typename UIntType, size_t w, typename RandomNumberEngine,
           bool (&PrimarityTest)(const UIntType&)>
 class random_prime_engine {
 public:
@@ -127,7 +127,7 @@ private:
              * @return Prime greater than \c n. There should be no other primes
   *between \c n and generated prime (see \c accuracy).
              */
-template <class UIntType, uint_fast32_t accuracy>
+template <typename UIntType, uint_fast32_t accuracy>
 UIntType next_prime(UIntType n);
 }
 
@@ -155,7 +155,7 @@ namespace Tests {
   *is definitely composite.
              *
              */
-template <class UIntType, size_t accuracy> bool miller_rabin(const UIntType& n);
+template <typename UIntType, size_t accuracy> bool miller_rabin(const UIntType& n);
 
 /**
              * @brief Miller-Rabin deterministic primality test.
@@ -175,7 +175,7 @@ template <class UIntType, size_t accuracy> bool miller_rabin(const UIntType& n);
   *is definitely composite.
              *
              */
-template <class UIntType, size_t w = std::numeric_limits<UIntType>::digits>
+template <typename UIntType, size_t w = std::numeric_limits<UIntType>::digits>
 bool miller_rabin_deterministic(const UIntType& n);
 
 /**
@@ -190,7 +190,7 @@ bool miller_rabin_deterministic(const UIntType& n);
   *together with other tests or for testing very small numbers.
              *
              */
-template <class UIntType> bool f100_prime_factors(const UIntType& n);
+template <typename UIntType> bool f100_prime_factors(const UIntType& n);
 
 /**
              * @brief Quick test, testing only first 1000 prime factors.
@@ -204,7 +204,7 @@ template <class UIntType> bool f100_prime_factors(const UIntType& n);
   *together with other tests or for testing very small numbers.
              *
              */
-template <class UIntType> bool f1000_prime_factors(const UIntType& n);
+template <typename UIntType> bool f1000_prime_factors(const UIntType& n);
 }
 
 /**
@@ -222,7 +222,7 @@ namespace Utils {
   *\f$
              *
              */
-template <class UIntType>
+template <typename UIntType>
 std::pair<UIntType, UIntType> fac_2_powers(const UIntType& n);
 
 /**
@@ -240,7 +240,7 @@ std::pair<UIntType, UIntType> fac_2_powers(const UIntType& n);
              * @return \f$ ({base}^{exponent}) \% modulo \f$
              *
              */
-template <class UIntType>
+template <typename UIntType>
 UIntType pow_mod(UIntType base, UIntType exp, const UIntType& mod);
 
 /**
@@ -255,7 +255,7 @@ UIntType pow_mod(UIntType base, UIntType exp, const UIntType& mod);
              * @param n number to compute logarithm for
              * @return natural logarithm of n
              */
-template <class UIntType, size_t w> double log(const UIntType& n);
+template <typename UIntType, size_t w> double log(const UIntType& n);
 
 /**
              * @brief Generates random number using provided engine. Randomness
@@ -275,7 +275,7 @@ template <class UIntType, size_t w> double log(const UIntType& n);
              * @return random number of width \c w
              *
              */
-template <class UIntType, class EngineType, size_t w>
+template <typename UIntType, typename EngineType, size_t w>
 UIntType independent_bits_generator(EngineType& _32b_generator);
 }
 
@@ -326,7 +326,7 @@ using pseudo_random_prime_engine = random_prime_engine<
 
 namespace PrimeGen {
 namespace Generators {
-template <class UIntType, size_t w, class RandomNumberEngine,
+template <typename UIntType, size_t w, typename RandomNumberEngine,
           bool (&PrimarityTest)(const UIntType&)>
 inline auto random_prime_engine<UIntType, w, RandomNumberEngine,
                                 PrimarityTest>::
@@ -344,7 +344,7 @@ operator()() -> result_type {
   }
 }
 
-template <class UIntType, size_t accuracy> UIntType next_prime(UIntType n) {
+template <typename UIntType, size_t accuracy> UIntType next_prime(UIntType n) {
   n = n | 1;
   while (true) {
     n = n + 2;
@@ -357,7 +357,7 @@ template <class UIntType, size_t accuracy> UIntType next_prime(UIntType n) {
 }
 
 namespace Tests {
-template <class UIntType, size_t accuracy>
+template <typename UIntType, size_t accuracy>
 bool miller_rabin(const UIntType& n) {
   std::random_device rd;
   UIntType witness = rd();
@@ -384,7 +384,7 @@ bool miller_rabin(const UIntType& n) {
   return true;
 }
 
-template <class UIntType, size_t w>
+template <typename UIntType, size_t w>
 bool miller_rabin_deterministic(const UIntType& n) {
   UIntType witness;
   std::pair<UIntType, UIntType> factors = Utils::fac_2_powers<UIntType>(
@@ -414,7 +414,7 @@ bool miller_rabin_deterministic(const UIntType& n) {
   return true;
 }
 
-template <class UIntType> bool f100_prime_factors(const UIntType& n) {
+template <typename UIntType> bool f100_prime_factors(const UIntType& n) {
   for (size_t i : KnownPrimes::first_100_primes) {
     if (n % i == 0 && n != i) {
       return false;
@@ -423,7 +423,7 @@ template <class UIntType> bool f100_prime_factors(const UIntType& n) {
   return true;
 }
 
-template <class UIntType> bool f1000_prime_factors(const UIntType& n) {
+template <typename UIntType> bool f1000_prime_factors(const UIntType& n) {
   for (size_t i : KnownPrimes::first_1000_primes) {
     if (n % i == 0 && n != i) {
       return false;
@@ -434,7 +434,7 @@ template <class UIntType> bool f1000_prime_factors(const UIntType& n) {
 }
 
 namespace Utils {
-template <class UIntType>
+template <typename UIntType>
 std::pair<UIntType, UIntType> fac_2_powers(const UIntType& n) {
   std::pair<UIntType, UIntType> factored(0, n);
   while ((factored.second & 1) == 0) // if even
@@ -445,7 +445,7 @@ std::pair<UIntType, UIntType> fac_2_powers(const UIntType& n) {
   return factored;
 }
 
-template <class UIntType>
+template <typename UIntType>
 UIntType pow_mod(UIntType base, UIntType exp, const UIntType& mod) {
   UIntType result = 1;
   while (exp > 0) {
@@ -459,7 +459,7 @@ UIntType pow_mod(UIntType base, UIntType exp, const UIntType& mod) {
   return result;
 }
 
-template <class UIntType, size_t w> double log(const UIntType& n) {
+template <typename UIntType, size_t w> double log(const UIntType& n) {
   constexpr size_t w_64 = std::numeric_limits<uint_fast64_t>::digits;
   constexpr size_t w_rest = w < w_64 ? 0 : (w - w_64);
   const static double log_2 = std::log(2);
@@ -485,7 +485,7 @@ template <class UIntType, size_t w> double log(const UIntType& n) {
   return result;
 }
 
-template <class UIntType, class EngineType, size_t w>
+template <typename UIntType, typename EngineType, size_t w>
 UIntType independent_bits_generator(EngineType& _32b_generator) {
   UIntType return_val = 0;
   for (uint_fast32_t i = 0; i < (w / 32) * 32; i += 32) {
