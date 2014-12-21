@@ -162,7 +162,7 @@ template&lt;typename UIntType &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::pair (s, d) where s, d holds <img class="formulaInl" alt="$ n = 2^{s} \times d *$" src="form_4.png"/> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair (s, d) where s, d holds <img class="formulaInl" alt="$ n = 2^{s} \times d $" src="form_7.png"/> </dd></dl>
 
 </div>
 </div>
@@ -185,8 +185,8 @@ template&lt;typename UIntType , typename EngineType , size_t w&gt; </div>
 <p>Generates random number using provided engine. Randomness of generated number depends on randomness of provided engine. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold <code>w</code> long numbers </td></tr>
-    <tr><td class="paramname">EngineType</td><td>Function support all standard engine types defined in <code>&lt;random&gt;</code>, including <code>std::random_device</code>. (Hence all classes generating 32b numbers with <code></code>() operator should work). Internal state of engine will be modified. Engine must be initialized and provide <code></code>() operator generating 32b numbers. </td></tr>
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold <code>w</code> long numbers</td></tr>
+    <tr><td class="paramname">EngineType</td><td>Function support all standard engine types defined in <code>&lt;random&gt;</code>, including <code>std::random_device</code>. (Hence all classes generating 32b numbers with <code></code>() operator should work). Internal state of engine will be modified. Engine must be initialized and provide <code></code>() operator generating 32b numbers.</td></tr>
     <tr><td class="paramname">w</td><td>size of number to generate in bits</td></tr>
   </table>
   </dd>
@@ -218,11 +218,22 @@ template&lt;typename UIntType , size_t w&gt; </div>
 </div><div class="memdoc">
 
 <p>Logarithm function. </p>
-<p>Computes logarithm with maximum precision avaible for standart types. <b>UIntType</b> must be able to print itself to stream (ie. stream operator &lt;&lt; must bbe defined) </p><pre class="fragment">        @tparam UIntType Unsigned integer type.
-        @tparam w size of \b n in bits
+<p>Computes logarithm with maximum precision avaible for standard types. <code>UIntType</code> must be able to print itself to stream (ie. stream operator &lt;&lt; must be defined)</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. </td></tr>
+    <tr><td class="paramname">w</td><td>size of <b>n</b> in bits</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>number to compute logarithm for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>natural logarithm of n </dd></dl>
 
-        @param n number to compute logarithm for
-        @return natural logarithm of n</pre> 
 </div>
 </div>
 <a class="anchor" id="a640cffdfe9303cbe0eb0205165c3161e"></a>
@@ -260,14 +271,19 @@ template&lt;typename UIntType &gt; </div>
 <p>Exponentiation over a modulo. Exponentiation will be done by repeated squaring. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times size of <code>base</code> and <code>mod</code>. (Even if <code>base</code> would fit in 32b type <code>UIntType</code> must be able to hold 64b number.) <pre class="fragment">        @param base
-        @param exp exponent
-        @param mod modulo
-
-        @return  \form#5</pre> </td></tr>
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times size of <code>base</code> and <code>mod</code>. (Even if <code>base</code> would fit in 32b type <code>UIntType</code> must be able to hold 64b number.)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>base </td></tr>
+    <tr><td class="paramname">exp</td><td>exponent </td></tr>
+    <tr><td class="paramname">mod</td><td>modulo</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Result of <img class="formulaInl" alt="$ ({base}^{exponent}) \% modulo $" src="form_5.png"/> </dd></dl>
 
 </div>
 </div>
@@ -277,7 +293,7 @@ template&lt;typename UIntType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>PrimeGen</b></li><li class="navelem"><a class="el" href="namespace_prime_gen_1_1_utils.html">Utils</a></li>
-    <li class="footer">Generated on Sun Dec 21 2014 16:24:23 for primegen by
+    <li class="footer">Generated on Sun Dec 21 2014 17:07:11 for primegen by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

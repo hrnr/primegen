@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2014.12.11)  21 DEC 2014 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2014.12.11)  21 DEC 2014 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1191,27 +1191,35 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.99994pt on input line 43.
-LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
-(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 71.
-LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 71.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 78.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 78.
+(Font)              scaled to size 6.29996pt on input line 43.
 
-Overfull \hbox (19.8523pt too wide) in paragraph at lines 82--82
-[]       \T1/pcr/m/n/8 @param n Generated prime will be greater than \c n. \c n
- must be[] 
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
  []
 
 
-Overfull \hbox (24.6523pt too wide) in paragraph at lines 84--84
-[]        \T1/pcr/m/n/8 @return Prime greater than \c n. There should be no oth
-er primes 
+Underfull \hbox (badness 10000) detected at line 67
+[][][]
  []
 
-) (./namespace_prime_gen_1_1_tests.tex [8]
+LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
+(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 79.
+LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
+(Font)              scaled to size 8.99994pt on input line 79.
+
+Underfull \hbox (badness 10000) detected at line 91
+[][][]
+ []
+
+[8]
+Underfull \hbox (badness 10000) detected at line 99
+[][][]
+ []
+
+) (./namespace_prime_gen_1_1_tests.tex
 Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
@@ -1222,9 +1230,13 @@ Underfull \hbox (badness 10000) detected at line 71
  []
 
 
-Overfull \hbox (24.6523pt too wide) in paragraph at lines 87--87
-[]        \T1/pcr/m/n/8 @param n Number to be tested for primality. Must be gre
-ater than 
+Underfull \hbox (badness 10000) detected at line 100
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 128
+[][][]
  []
 
 ) (./namespace_prime_gen_1_1_utils.tex [10]
@@ -1241,12 +1253,17 @@ Underfull \hbox (badness 10000) detected at line 75
 [][][]
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 108--151
 
+Underfull \hbox (badness 10000) detected at line 103
+[][][]
  []
 
-[12]
+
+Underfull \hbox (badness 10000) detected at line 133
+[][][]
+ []
+
+) [12]
 Chapter 5.
 (./class_prime_gen_1_1_generators_1_1random__prime__engine.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
@@ -1287,27 +1304,26 @@ nt[]Type, size[]_[]t w, type-name Random[]Number[]Engine, bool(&)(const U[]Int[
 [13
 
 ]
-Overfull \hbox (15.05229pt too wide) in paragraph at lines 55--55
-[]        \T1/pcr/m/n/8 @return Randomly (randomness depends on RandomNumberEng
-ine and 
+Underfull \hbox (badness 10000) detected at line 56
+[][][]
  []
 
 
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 69.
+(Font)              using `T1/pcr/m/n' instead on input line 68.
 
 
-Underfull \hbox (badness 10000) detected at line 93
+Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 107
+Underfull \hbox (badness 10000) detected at line 106
 [][][]
  []
 
 [14]
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 122
 [][][]
  []
 
@@ -1333,13 +1349,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 12607 strings out of 494381
- 175248 string characters out of 6163700
- 259067 words of memory out of 5000000
- 15524 multiletter control sequences out of 15000+600000
- 111221 words of font info for 167 fonts, out of 8000000 for 9000
+ 12610 strings out of 494381
+ 175272 string characters out of 6163700
+ 260082 words of memory out of 5000000
+ 15528 multiletter control sequences out of 15000+600000
+ 110600 words of font info for 165 fonts, out of 8000000 for 9000
  382 hyphenation exceptions out of 8191
- 48i,17n,43p,1812b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,17n,43p,1812b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
@@ -1352,10 +1368,10 @@ ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on refman.pdf (19 pages, 141857 bytes).
+Output written on refman.pdf (19 pages, 143883 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
+ 413 PDF objects out of 1000 (max. 8388607)
+ 376 compressed objects within 4 object streams
  86 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

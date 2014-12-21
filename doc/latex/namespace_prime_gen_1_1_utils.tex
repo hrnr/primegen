@@ -45,7 +45,7 @@ Factorize powers of 2 from n.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-std\+::pair (s, d) where s, d holds $ n = 2^{s} \times d *$ 
+std\+::pair (s, d) where s, d holds $ n = 2^{s} \times d $ 
 \end{DoxyReturn}
 \hypertarget{namespace_prime_gen_1_1_utils_a279cd6b89aca43a9597f58aa4a7b5807}{\index{Prime\+Gen\+::\+Utils@{Prime\+Gen\+::\+Utils}!independent\+\_\+bits\+\_\+generator@{independent\+\_\+bits\+\_\+generator}}
 \index{independent\+\_\+bits\+\_\+generator@{independent\+\_\+bits\+\_\+generator}!Prime\+Gen\+::\+Utils@{Prime\+Gen\+::\+Utils}}
@@ -60,9 +60,9 @@ Generates random number using provided engine. Randomness of generated number de
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold {\ttfamily w} long numbers \\
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold {\ttfamily w} long numbers\\
 \hline
-{\em Engine\+Type} & Function support all standard engine types defined in {\ttfamily $<$random$>$}, including {\ttfamily std\+::random\+\_\+device}. (Hence all classes generating 32b numbers with {\ttfamily }() operator should work). Internal state of engine will be modified. Engine must be initialized and provide {\ttfamily }() operator generating 32b numbers. \\
+{\em Engine\+Type} & Function support all standard engine types defined in {\ttfamily $<$random$>$}, including {\ttfamily std\+::random\+\_\+device}. (Hence all classes generating 32b numbers with {\ttfamily }() operator should work). Internal state of engine will be modified. Engine must be initialized and provide {\ttfamily }() operator generating 32b numbers.\\
 \hline
 {\em w} & size of number to generate in bits\\
 \hline
@@ -86,12 +86,24 @@ random number of width {\ttfamily w}
 
 Logarithm function. 
 
-Computes logarithm with maximum precision avaible for standart types. {\bfseries U\+Int\+Type} must be able to print itself to stream (ie. stream operator $<$$<$ must bbe defined) \begin{DoxyVerb}        @tparam UIntType Unsigned integer type.
-        @tparam w size of \b n in bits
+Computes logarithm with maximum precision avaible for standard types. {\ttfamily U\+Int\+Type} must be able to print itself to stream (ie. stream operator $<$$<$ must be defined)
 
-        @param n number to compute logarithm for
-        @return natural logarithm of n\end{DoxyVerb}
- \hypertarget{namespace_prime_gen_1_1_utils_a640cffdfe9303cbe0eb0205165c3161e}{\index{Prime\+Gen\+::\+Utils@{Prime\+Gen\+::\+Utils}!pow\+\_\+mod@{pow\+\_\+mod}}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\+Int\+Type} & Unsigned integer type. \\
+\hline
+{\em w} & size of {\bfseries n} in bits\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number to compute logarithm for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+natural logarithm of n 
+\end{DoxyReturn}
+\hypertarget{namespace_prime_gen_1_1_utils_a640cffdfe9303cbe0eb0205165c3161e}{\index{Prime\+Gen\+::\+Utils@{Prime\+Gen\+::\+Utils}!pow\+\_\+mod@{pow\+\_\+mod}}
 \index{pow\+\_\+mod@{pow\+\_\+mod}!Prime\+Gen\+::\+Utils@{Prime\+Gen\+::\+Utils}}
 \subsubsection[{pow\+\_\+mod}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U\+Int\+Type $>$ U\+Int\+Type Prime\+Gen\+::\+Utils\+::pow\+\_\+mod (
 \begin{DoxyParamCaption}
@@ -106,11 +118,18 @@ Exponentiation over a modulo. Exponentiation will be done by repeated squaring.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily base} and {\ttfamily mod}. (Even if {\ttfamily base} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.) \begin{DoxyVerb}        @param base
-        @param exp exponent
-        @param mod modulo
-
-        @return  \form#5\end{DoxyVerb}
- \\
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily base} and {\ttfamily mod}. (Even if {\ttfamily base} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.)\\
 \hline
 \end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em base} & base \\
+\hline
+{\em exp} & exponent \\
+\hline
+{\em mod} & modulo\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of $ ({base}^{exponent}) \% modulo $ 
+\end{DoxyReturn}

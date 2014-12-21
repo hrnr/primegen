@@ -153,13 +153,15 @@ template&lt;typename UIntType , size_t w&gt; </div>
 </div><div class="memdoc">
 
 <p>Pseudorandom prime generator. </p>
-<p>Pseudorandom prime will be generated using <code>std::minstd_rand</code>. Probabilistic test is used for primarity testing, probability of false-positive composite is lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} *$" src="form_6.png"/> while test is still reasonably fast. </p><pre class="fragment">        @tparam UIntType Unsigned integer type. Must be able to hold 2
-</pre><p> times maximum of <code>w</code>. (If <code>w</code> is 32 <code>UIntType</code> must be able to hold 64b numbers.) </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Pseudorandom prime will be generated using <code>std::minstd_rand</code>. Probabilistic test is used for primarity testing, probability of false-positive composite is lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} $" src="form_2.png"/> while test is still reasonably fast.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">w</td><td>Size of number to generate in bits. Generated number will be alway greater than <img class="formulaInl" alt="$ 2^{w-1} $" src="form_0.png"/>. <code>w</code> must be greater than 2. <pre class="fragment">        @see Tests::miller_rabin</pre> </td></tr>
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times maximum of <code>w</code>. (If <code>w</code> is 32 <code>UIntType</code> must be able to hold 64b numbers.)</td></tr>
+    <tr><td class="paramname">w</td><td>Size of number to generate in bits. Generated number will be alway greater than <img class="formulaInl" alt="$ 2^{w-1} $" src="form_0.png"/>. <code>w</code> must be greater than 2.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_prime_gen_1_1_tests.html#ab4ab789bde1badebff58de914a31afb3" title="Miller-Rabin probabilistic primality test. ">Tests::miller_rabin</a> </dd></dl>
 
 </div>
 </div>
@@ -176,13 +178,15 @@ template&lt;typename UIntType , size_t w&gt; </div>
 </div><div class="memdoc">
 
 <p>Random prime generator. </p>
-<p>Random prime will be generated using <code>std::random_device</code>. Probabilistic test is used for primarity testing, probability of false-positive composite is lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} *$" src="form_6.png"/> while test is still reasonably fast. </p><pre class="fragment">        @tparam UIntType Unsigned integer type. Must be able to hold 2
-</pre><p> times maximum of <code>w</code>. (If <code>w</code> is 32 <code>UIntType</code> must be able to hold 64b numbers.) </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Random prime will be generated using <code>std::random_device</code>. Probabilistic test is used for primarity testing, probability of false-positive composite is lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} $" src="form_2.png"/> while test is still reasonably fast.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">w</td><td>Size of number to generate in bits. Generated number will be alway greater than <img class="formulaInl" alt="$ 2^{w-1} $" src="form_0.png"/>. <code>w</code> must be greater than 2. <pre class="fragment">        @see Tests::miller_rabin</pre> </td></tr>
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times maximum of <code>w</code>. (If <code>w</code> is 32 <code>UIntType</code> must be able to hold 64b numbers.)</td></tr>
+    <tr><td class="paramname">w</td><td>Size of number to generate in bits. Generated number will be alway greater than <img class="formulaInl" alt="$ 2^{w-1} $" src="form_0.png"/>. <code>w</code> must be greater than 2.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_prime_gen_1_1_tests.html#ab4ab789bde1badebff58de914a31afb3" title="Miller-Rabin probabilistic primality test. ">Tests::miller_rabin</a> </dd></dl>
 
 </div>
 </div>
@@ -206,15 +210,19 @@ template&lt;typename UIntType , uint_fast32_t accuracy&gt; </div>
 <p>Generates next prime greater than <code>n</code>. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times size of <code>result</code>. Too bad no theory can estimate how exactly this prime will be big. From probabilistic theory you are pretty safe if <code>UIntType</code> can hold <img class="formulaInl" alt="$ 3 \times (n + \ln(n)) $" src="form_1.png"/>. </td></tr>
-    <tr><td class="paramname">accuracy</td><td>Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are <b>25</b> – 50 which gives probability of false-positive composite lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} $" src="form_2.png"/> while test is still reasonably fast. <pre class="fragment">       @see Tests::miller_rabin
-
-       @param n Generated prime will be greater than \c n. \c n must be
-</pre> greater than 3. <pre class="fragment">        @return Prime greater than \c n. There should be no other primes
-</pre> between <code>n</code> and generated prime (see <code>accuracy</code>). </td></tr>
+    <tr><td class="paramname">UIntType</td><td>Unsigned integer type. Must be able to hold 2 times size of <code>result</code>. Too bad no theory can estimate how exactly this prime will be big. From probabilistic theory you are pretty safe if <code>UIntType</code> can hold <img class="formulaInl" alt="$ 3 \times (n + \ln(n)) $" src="form_1.png"/>.</td></tr>
+    <tr><td class="paramname">accuracy</td><td>Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are <b>25</b> – 50 which gives probability of false-positive composite lower than <img class="formulaInl" alt="$ \frac{1}{4^{25}} $" src="form_2.png"/> while test is still reasonably fast.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_prime_gen_1_1_tests.html#ab4ab789bde1badebff58de914a31afb3" title="Miller-Rabin probabilistic primality test. ">Tests::miller_rabin</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Generated prime will be greater than <code>n</code>. <code>n</code> must be greater than 3.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prime greater than <code>n</code>. There should be no other primes between <code>n</code> and generated prime (see <code>accuracy</code>). </dd></dl>
 
 </div>
 </div>
@@ -224,7 +232,7 @@ template&lt;typename UIntType , uint_fast32_t accuracy&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>PrimeGen</b></li><li class="navelem"><a class="el" href="namespace_prime_gen_1_1_generators.html">Generators</a></li>
-    <li class="footer">Generated on Sun Dec 21 2014 16:24:23 for primegen by
+    <li class="footer">Generated on Sun Dec 21 2014 17:07:11 for primegen by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

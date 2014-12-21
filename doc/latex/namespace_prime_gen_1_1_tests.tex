@@ -84,18 +84,22 @@ Miller-\/\+Rabin probabilistic primality test.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily n}. (Even if {\ttfamily n} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.) \begin{DoxyVerb}        @param n Number to be tested for primality. Must be greater than
-\end{DoxyVerb}
- 3. \\
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily n}. (Even if {\ttfamily n} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.)\\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em accuracy} & Since this is only probabilistic test, test has its accuracy determined by this parameter. Probability of false-\/positive match is only $ \frac{1}{4^{accuracy}} $. Prime will be always determined as prime. Reasonable values are 25 – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast. \begin{DoxyVerb}        @return \c true if number is probable prime, \c false if number
-\end{DoxyVerb}
- is definitely composite. \\
+{\em n} & Number to be tested for primality. Must be greater than 3. \\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em accuracy} & Since this is only probabilistic test, test has its accuracy determined by this parameter. Probability of false-\/positive match is only $ \frac{1}{4^{accuracy}} $. Prime will be always determined as prime. Reasonable values are 25 – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if number is probable prime, {\ttfamily false} if number is definitely composite. 
+\end{DoxyReturn}
 \hypertarget{namespace_prime_gen_1_1_tests_a48457a4b0960c5451b655bf9c39aa2b6}{\index{Prime\+Gen\+::\+Tests@{Prime\+Gen\+::\+Tests}!miller\+\_\+rabin\+\_\+deterministic@{miller\+\_\+rabin\+\_\+deterministic}}
 \index{miller\+\_\+rabin\+\_\+deterministic@{miller\+\_\+rabin\+\_\+deterministic}!Prime\+Gen\+::\+Tests@{Prime\+Gen\+::\+Tests}}
 \subsubsection[{miller\+\_\+rabin\+\_\+deterministic}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U\+Int\+Type , size\+\_\+t w = std\+::numeric\+\_\+limits$<$\+U\+Int\+Type$>$\+::digits$>$ bool Prime\+Gen\+::\+Tests\+::miller\+\_\+rabin\+\_\+deterministic (
@@ -107,17 +111,20 @@ Miller-\/\+Rabin probabilistic primality test.
 
 Miller-\/\+Rabin deterministic primality test. 
 
-This test depends on (unproved in time of writting) generalized Riemann hypothesis. Don't use this test if dependency on unproved theories is unaccetable for you. \begin{DoxyVerb}        @tparam UIntType Unsigned integer type. Must be able to hold 2
-\end{DoxyVerb}
- times size of {\ttfamily n}. (Even if {\ttfamily n} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.) 
+This test depends on (unproved in time of writting) generalized Riemann hypothesis. Don't use this test if dependency on unproved theories is unaccetable for you.
+
+
 \begin{DoxyTemplParams}{Template Parameters}
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily n}. (Even if {\ttfamily n} would fit in 32b type {\ttfamily U\+Int\+Type} must be able to hold 64b number.)\\
+\hline
 {\em w} & Bit width of given number {\ttfamily n}.\\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em n} & Number to be tested for primality. Must be greater than 3. \begin{DoxyVerb}        @return \c true if number is prime, \c false if number
-\end{DoxyVerb}
- is composite. \\
+{\em n} & Number to be tested for primality. Must be greater than 3.\\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if number is prime, {\ttfamily false} if number is composite. 
+\end{DoxyReturn}

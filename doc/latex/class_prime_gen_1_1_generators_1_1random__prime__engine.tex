@@ -40,23 +40,22 @@ static constexpr result\+\_\+type \hyperlink{class_prime_gen_1_1_generators_1_1r
 
 Random prime generator. 
 
-Random prime will be generated using given {\ttfamily Random\+Number\+Engine}. \begin{DoxyVerb}        @tparam UIntType Unsigned integer type. Must be able to hold 2
-\end{DoxyVerb}
- times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\+Int\+Type} must be able to hold 64b numbers.) 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em w} & Size of number to generate in bits. Generated number will be always greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2. \\
-\hline
-{\em Random\+Number\+Engine} & Engine used as base for generating random numbers. Entropy provided by this engine directly affects entropy of generated primes (ie. quality of this engine is really important) \\
-\hline
-{\em Primarity\+Test} & Test used for primarity testing. First fast test for 1000 first primes is applied on generated number, then {\ttfamily Primarity\+Test} is runned. No further testing is done, use with caution. \begin{DoxyVerb}        @see Tests::miller_rabin
+Random prime will be generated using given {\ttfamily Random\+Number\+Engine}.
 
-        @param args Arguments passed to constructor of \c
-\end{DoxyVerb}
- Random\+Number\+Engine. \begin{DoxyVerb}        @return Randomly (randomness depends on RandomNumberEngine and
-\end{DoxyVerb}
- its arguments) generated prime number. \\
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\+Int\+Type} must be able to hold 64b numbers.)\\
+\hline
+{\em w} & Size of number to generate in bits. Generated number will be always greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2.\\
+\hline
+{\em Random\+Number\+Engine} & Engine used as base for generating random numbers. Entropy provided by this engine directly affects entropy of generated primes (ie. quality of this engine is really important)\\
+\hline
+{\em Primarity\+Test} & Test used for primarity testing. First fast test for 1000 first primes is applied on generated number, then {\ttfamily Primarity\+Test} is runned. No further testing is done, use with caution.\\
 \hline
 \end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_prime_gen_1_1_tests_ab4ab789bde1badebff58de914a31afb3}{Tests\+::miller\+\_\+rabin} 
+\end{DoxySeeAlso}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -118,7 +117,9 @@ The minimum potentially generated value which is always $ 2^{w-1} $
 
 Generates prime. 
 
-Generates a random (randomness depends on {\ttfamily Random\+Number\+Engine}) prime. The state of the engine is advanced by one position. \begin{DoxyReturn}{Returns}
+Generates a random (randomness depends on {\ttfamily Random\+Number\+Engine}) prime. The state of the engine is advanced by one position.
+
+\begin{DoxyReturn}{Returns}
 A random prime in \mbox{[}\hyperlink{class_prime_gen_1_1_generators_1_1random__prime__engine_aca7cba717ac90823ba325c6e4d79d1a2}{min()}, \hyperlink{class_prime_gen_1_1_generators_1_1random__prime__engine_a123bf5e419910ff9b04916408fbdd228}{max()}\mbox{]}. 
 \end{DoxyReturn}
 
