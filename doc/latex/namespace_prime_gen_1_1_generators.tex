@@ -1,0 +1,88 @@
+\hypertarget{namespace_prime_gen_1_1_generators}{\section{Prime\+Gen\+:\+:Generators Namespace Reference}
+\label{namespace_prime_gen_1_1_generators}\index{Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}}
+}
+
+
+Prime generators.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_prime_gen_1_1_generators_1_1random__prime__engine}{random\+\_\+prime\+\_\+engine}
+\begin{DoxyCompactList}\small\item\em Random prime generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U\+Int\+Type , size\+\_\+t w$>$ }\\using \hyperlink{namespace_prime_gen_1_1_generators_ab2949ed1231e1fe0166367456a32a746}{truly\+\_\+random\+\_\+prime\+\_\+engine} = \hyperlink{class_prime_gen_1_1_generators_1_1random__prime__engine}{random\+\_\+prime\+\_\+engine}$<$ U\+Int\+Type, w, std\+::random\+\_\+device, \hyperlink{namespace_prime_gen_1_1_tests_ab4ab789bde1badebff58de914a31afb3}{Tests\+::miller\+\_\+rabin}$<$ U\+Int\+Type, 25 $>$ $>$
+\begin{DoxyCompactList}\small\item\em Random prime generator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U\+Int\+Type , size\+\_\+t w$>$ }\\using \hyperlink{namespace_prime_gen_1_1_generators_a376898a01ff7e348018297a4d1147977}{pseudo\+\_\+random\+\_\+prime\+\_\+engine} = \hyperlink{class_prime_gen_1_1_generators_1_1random__prime__engine}{random\+\_\+prime\+\_\+engine}$<$ U\+Int\+Type, w, std\+::minstd\+\_\+rand, \hyperlink{namespace_prime_gen_1_1_tests_ab4ab789bde1badebff58de914a31afb3}{Tests\+::miller\+\_\+rabin}$<$ U\+Int\+Type, 25 $>$ $>$
+\begin{DoxyCompactList}\small\item\em Pseudorandom prime generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U\+Int\+Type , uint\+\_\+fast32\+\_\+t accuracy$>$ }\\U\+Int\+Type \hyperlink{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}{next\+\_\+prime} (U\+Int\+Type n)
+\begin{DoxyCompactList}\small\item\em Generates next prime greater than {\ttfamily n}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prime generators. 
+
+\subsection{Typedef Documentation}
+\hypertarget{namespace_prime_gen_1_1_generators_a376898a01ff7e348018297a4d1147977}{\index{Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}!pseudo\+\_\+random\+\_\+prime\+\_\+engine@{pseudo\+\_\+random\+\_\+prime\+\_\+engine}}
+\index{pseudo\+\_\+random\+\_\+prime\+\_\+engine@{pseudo\+\_\+random\+\_\+prime\+\_\+engine}!Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}}
+\subsubsection[{pseudo\+\_\+random\+\_\+prime\+\_\+engine}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U\+Int\+Type , size\+\_\+t w$>$ using {\bf Prime\+Gen\+::\+Generators\+::pseudo\+\_\+random\+\_\+prime\+\_\+engine} = typedef {\bf random\+\_\+prime\+\_\+engine}$<$ U\+Int\+Type, w, std\+::minstd\+\_\+rand, {\bf Tests\+::miller\+\_\+rabin}$<$U\+Int\+Type, 25$>$ $>$}}\label{namespace_prime_gen_1_1_generators_a376898a01ff7e348018297a4d1147977}
+
+
+Pseudorandom prime generator. 
+
+Pseudorandom prime will be generated using {\ttfamily std\+::minstd\+\_\+rand}. Probabilistic test is used for primarity testing, probability of false-\/positive composite is lower than $ \frac{1}{4^{25}} *$ while test is still reasonably fast. \begin{DoxyVerb}        @tparam UIntType Unsigned integer type. Must be able to hold 2
+\end{DoxyVerb}
+ times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\+Int\+Type} must be able to hold 64b numbers.) 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em w} & Size of number to generate in bits. Generated number will be alway greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2. \begin{DoxyVerb}        @see Tests::miller_rabin\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyTemplParams}
+\hypertarget{namespace_prime_gen_1_1_generators_ab2949ed1231e1fe0166367456a32a746}{\index{Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}!truly\+\_\+random\+\_\+prime\+\_\+engine@{truly\+\_\+random\+\_\+prime\+\_\+engine}}
+\index{truly\+\_\+random\+\_\+prime\+\_\+engine@{truly\+\_\+random\+\_\+prime\+\_\+engine}!Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}}
+\subsubsection[{truly\+\_\+random\+\_\+prime\+\_\+engine}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U\+Int\+Type , size\+\_\+t w$>$ using {\bf Prime\+Gen\+::\+Generators\+::truly\+\_\+random\+\_\+prime\+\_\+engine} = typedef {\bf random\+\_\+prime\+\_\+engine}$<$ U\+Int\+Type, w, std\+::random\+\_\+device, {\bf Tests\+::miller\+\_\+rabin}$<$U\+Int\+Type, 25$>$ $>$}}\label{namespace_prime_gen_1_1_generators_ab2949ed1231e1fe0166367456a32a746}
+
+
+Random prime generator. 
+
+Random prime will be generated using {\ttfamily std\+::random\+\_\+device}. Probabilistic test is used for primarity testing, probability of false-\/positive composite is lower than $ \frac{1}{4^{25}} *$ while test is still reasonably fast. \begin{DoxyVerb}        @tparam UIntType Unsigned integer type. Must be able to hold 2
+\end{DoxyVerb}
+ times maximum of {\ttfamily w}. (If {\ttfamily w} is 32 {\ttfamily U\+Int\+Type} must be able to hold 64b numbers.) 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em w} & Size of number to generate in bits. Generated number will be alway greater than $ 2^{w-1} $. {\ttfamily w} must be greater than 2. \begin{DoxyVerb}        @see Tests::miller_rabin\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}{\index{Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}!next\+\_\+prime@{next\+\_\+prime}}
+\index{next\+\_\+prime@{next\+\_\+prime}!Prime\+Gen\+::\+Generators@{Prime\+Gen\+::\+Generators}}
+\subsubsection[{next\+\_\+prime}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U\+Int\+Type , uint\+\_\+fast32\+\_\+t accuracy$>$ U\+Int\+Type Prime\+Gen\+::\+Generators\+::next\+\_\+prime (
+\begin{DoxyParamCaption}
+\item[{U\+Int\+Type}]{n}
+\end{DoxyParamCaption}
+)}}\label{namespace_prime_gen_1_1_generators_a873d71df2a6aa5006ef2be655b0e96bd}
+
+
+Generates next prime greater than {\ttfamily n}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U\+Int\+Type} & Unsigned integer type. Must be able to hold 2 times size of {\ttfamily result}. Too bad no theory can estimate how exactly this prime will be big. From probabilistic theory you are pretty safe if {\ttfamily U\+Int\+Type} can hold $ 3 \times (n + \ln(n)) $. \\
+\hline
+{\em accuracy} & Since probabilistic test is used for primarity testing, this parameter determines accuracy of the test. Reasonable values are {\bfseries 25} – 50 which gives probability of false-\/positive composite lower than $ \frac{1}{4^{25}} $ while test is still reasonably fast. \begin{DoxyVerb}       @see Tests::miller_rabin
+
+       @param n Generated prime will be greater than \c n. \c n must be
+\end{DoxyVerb}
+ greater than 3. \begin{DoxyVerb}        @return Prime greater than \c n. There should be no other primes
+\end{DoxyVerb}
+ between {\ttfamily n} and generated prime (see {\ttfamily accuracy}). \\
+\hline
+\end{DoxyTemplParams}
