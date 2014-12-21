@@ -33,5 +33,5 @@ offline reference.
 Copyright
 ---------
 
-This project is licenced under terms of MIT licence, see [LICENCE](LICENCE)
+This project is licensed under terms of MIT licence, see [LICENSE](LICENSE)
 for details.
